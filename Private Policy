@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 · 醉酒模拟器 / DrunkWalking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .header {
+            background: #0A0A0A;
+            color: white;
+            padding: 32px 32px 24px;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 6px;
+        }
+        .header .sub {
+            font-size: 16px;
+            color: #a1a1a6;
+            font-weight: 400;
+        }
+        .header .update {
+            margin-top: 16px;
+            font-size: 15px;
+            color: #d2d2d7;
+            border-top: 1px solid #2c2c2e;
+            padding-top: 16px;
+        }
+        .lang-tabs {
+            display: flex;
+            border-bottom: 1px solid #e9e9ed;
+            background: #f9f9fb;
+            padding: 0 20px;
+        }
+        .lang-tab {
+            padding: 16px 24px 14px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #6b6b70;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.1s;
+        }
+        .lang-tab.active {
+            color: #0A0A0A;
+            border-bottom-color: #FF5E5E;
+        }
+        .content {
+            padding: 32px;
+        }
+        .policy {
+            display: none;
+        }
+        .policy.active {
+            display: block;
+        }
+        .policy h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 28px 0 12px;
+            letter-spacing: -0.01em;
+        }
+        .policy h2:first-of-type {
+            margin-top: 0;
+        }
+        .policy h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 24px 0 8px;
+        }
+        .policy p {
+            margin: 16px 0;
+            color: #2d2d33;
+        }
+        .policy ul {
+            margin: 16px 0 16px 24px;
+            color: #2d2d33;
+        }
+        .policy li {
+            margin: 8px 0;
+        }
+        .policy .highlight {
+            background: #f5f5fa;
+            padding: 20px;
+            border-radius: 16px;
+            border-left: 4px solid #FF5E5E;
+            margin: 24px 0;
+        }
+        .policy .highlight p:last-child {
+            margin-bottom: 0;
+        }
+        .policy hr {
+            border: none;
+            border-top: 1px solid #e9e9ed;
+            margin: 32px 0;
+        }
+        .footer {
+            padding: 24px 32px 32px;
+            background: #f9f9fb;
+            border-top: 1px solid #e9e9ed;
+            color: #6b6b70;
+            font-size: 14px;
+            text-align: center;
+        }
+        .footer a {
+            color: #FF5E5E;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .header { padding: 24px 20px; }
+            .content { padding: 24px 20px; }
+            .lang-tab { padding: 14px 16px 12px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>隐私政策 · 醉酒模拟器</h1>
+        <div class="sub">DrunkWalking – 完全本地 · 无数据收集</div>
+        <div class="update">最后更新：2024年3月15日</div>
+    </div>
+
+    <div class="lang-tabs">
+        <div class="lang-tab active" onclick="switchLang('zh')">简体中文</div>
+        <div class="lang-tab" onclick="switchLang('en')">English</div>
+    </div>
+
+    <div class="content">
+        <!-- 中文政策 -->
+        <div id="policy-zh" class="policy active">
+            <p><strong>醉酒模拟器</strong>（英文名 DrunkWalking，以下简称“本应用”）尊重并保护所有使用者的隐私。本政策说明了我们如何处理您的信息。</p>
+            
+            <div class="highlight">
+                <p><strong>一句话总结：本应用不收集任何个人信息。所有数据只留在您手机里。</strong></p>
+            </div>
+
+            <h2>1. 信息收集</h2>
+            <p>本应用<strong>不收集任何个人信息</strong>。我们不会向任何服务器上传数据，也不需要您注册或登录。</p>
+
+            <h2>2. 传感器数据</h2>
+            <p>本应用使用设备的陀螺仪和加速度计来检测转圈圈数、步数和行走偏移，从而实现“模拟醉酒”的核心体验。所有传感器数据：</p>
+            <ul>
+                <li>仅在您使用应用时实时读取</li>
+                <li>实时处理、实时丢弃，不会被记录、存储或保留</li>
+                <li>绝不会离开您的设备</li>
+            </ul>
+
+            <h2>3. 本地存储</h2>
+            <p>您在应用中输入的玩家名字和游戏成绩仅保存在您的设备本地（使用 Apple 的 CoreData 框架）。这些数据：</p>
+            <ul>
+                <li>只用于显示排行榜和记录成绩</li>
+                <li>不会被本应用或任何第三方访问</li>
+                <li>您可以随时在“聚会记分板”页面点击“清空今晚”删除当日记录</li>
+                <li>卸载应用会清除所有本地数据</li>
+            </ul>
+
+            <h2>4. 第三方服务</h2>
+            <p>本应用<strong>不使用</strong>任何第三方分析工具、广告SDK、崩溃统计或数据收集服务。完全离线运行，无需联网权限。</p>
+
+            <h2>5. 数据共享</h2>
+            <p>本应用<strong>不会</strong>以任何方式分享、出售、出租或交易您的任何信息——因为本应用根本不收集任何信息。</p>
+
+            <h2>6. 儿童隐私</h2>
+            <p>本应用不会故意收集13岁以下儿童的个人信息。由于本应用不收集任何信息，因此不存在儿童数据被收集的风险。如您是家长并对此有疑问，可通过下方邮箱联系我们。</p>
+
+            <h2>7. 隐私政策更新</h2>
+            <p>我们可能会不时更新本隐私政策。更新时会在此页面修改“最后更新日期”。建议您定期查看本页面以了解任何变更。</p>
+
+            <h2>8. 联系我们</h2>
+            <p>如果您对本隐私政策有任何疑问，欢迎通过以下方式联系我们：</p>
+            <p>📧 <a href="mailto:a1012927404@gmail.com">a1012927404@gmail.com</a></p>
+
+            <hr>
+
+            <p style="font-size: 15px; color: #6b6b70;">本政策自发布之日起生效。</p>
+        </div>
+
+        <!-- English Policy -->
+        <div id="policy-en" class="policy">
+            <p><strong>DrunkWalking</strong> respects your privacy. This policy explains how we handle your information.</p>
+            
+            <div class="highlight">
+                <p><strong>TL;DR: We don't collect any personal data. Everything stays on your device.</strong></p>
+            </div>
+
+            <h2>1. Information Collection</h2>
+            <p>We <strong>do not collect any personal information</strong>. No sign-up, no login, no servers — all data stays locally on your iPhone.</p>
+
+            <h2>2. Sensor Data</h2>
+            <p>This app uses gyroscope and accelerometer to detect spins, steps, and walking deviation — all to create the "drunk simulation" experience. Sensor data is:</p>
+            <ul>
+                <li>Read in real-time only while you use the app</li>
+                <li>Processed and immediately discarded</li>
+                <li>Never recorded, stored, or saved</li>
+                <li>Never leaves your device</li>
+            </ul>
+
+            <h2>3. Local Storage</h2>
+            <p>Player names and game scores you enter are stored locally on your device (using Apple's CoreData). This data:</p>
+            <ul>
+                <li>Is only used to display scoreboards and history</li>
+                <li>Is never accessed by us or any third party</li>
+                <li>Can be deleted anytime by tapping "Clear Tonight" on the Scoreboard screen</li>
+                <li>Will be completely removed if you uninstall the app</li>
+            </ul>
+
+            <h2>4. Third-Party Services</h2>
+            <p>We <strong>do not use</strong> any third-party analytics, advertising SDKs, crash reporters, or data collection services. The app works completely offline and requires no internet permission.</p>
+
+            <h2>5. Data Sharing</h2>
+            <p>We <strong>do not</strong> share, sell, rent, or trade any of your information — simply because we don't collect any.</p>
+
+            <h2>6. Children's Privacy</h2>
+            <p>We do not knowingly collect personal information from children under 13. Since we collect nothing at all, there's no risk of children's data being collected. If you're a parent with concerns, contact us at the email below.</p>
+
+            <h2>7. Changes to This Policy</h2>
+            <p>We may update this privacy policy occasionally. Any changes will be reflected by updating the "Last Updated" date at the top. We encourage you to review this page periodically.</p>
+
+            <h2>8. Contact Us</h2>
+            <p>If you have any questions about this privacy policy, please reach out:</p>
+            <p>📧 <a href="mailto:a1012927404@gmail.com">a1012927404@gmail.com</a></p>
+
+            <hr>
+
+            <p style="font-size: 15px; color: #6b6b70;">This policy is effective as of March 15, 2024.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2024 醉酒模拟器 · DrunkWalking · 
+        <a href="#" onclick="switchLang('zh'); return false;">中文</a> · 
+        <a href="#" onclick="switchLang('en'); return false;">English</a><br>
+        本应用完全离线，不收集任何数据 · This app is fully offline, zero data collection
+    </div>
+</div>
+
+<script>
+    function switchLang(lang) {
+        // 更新tab样式
+        document.querySelectorAll('.lang-tab').forEach(tab => tab.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        // 更新政策显示
+        document.querySelectorAll('.policy').forEach(policy => policy.classList.remove('active'));
+        document.getElementById('policy-' + lang).classList.add('active');
+    }
+</script>
+</body>
+</html>

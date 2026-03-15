@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术支持 · 醉酒模拟器 / DrunkWalking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .header {
+            background: #0A0A0A;
+            color: white;
+            padding: 32px 32px 24px;
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+        .header .sub {
+            font-size: 18px;
+            color: #a1a1a6;
+            font-weight: 400;
+        }
+        .header .contact-badge {
+            margin-top: 20px;
+            background: #2c2c2e;
+            border-radius: 40px;
+            padding: 12px 20px;
+            display: inline-block;
+            font-size: 16px;
+        }
+        .header .contact-badge a {
+            color: #FF5E5E;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .lang-tabs {
+            display: flex;
+            border-bottom: 1px solid #e9e9ed;
+            background: #f9f9fb;
+            padding: 0 20px;
+        }
+        .lang-tab {
+            padding: 16px 24px 14px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #6b6b70;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.1s;
+        }
+        .lang-tab.active {
+            color: #0A0A0A;
+            border-bottom-color: #FF5E5E;
+        }
+        .content {
+            padding: 40px;
+        }
+        .support {
+            display: none;
+        }
+        .support.active {
+            display: block;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section h2:before {
+            content: "●";
+            color: #FF5E5E;
+            font-size: 20px;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e9e9ed;
+            padding: 20px 0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #0A0A0A;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .faq-question:before {
+            content: "Q:";
+            color: #FF5E5E;
+            font-weight: 700;
+            margin-right: 5px;
+        }
+        .faq-answer {
+            color: #4a4a50;
+            padding-left: 28px;
+            position: relative;
+        }
+        .faq-answer:before {
+            content: "A:";
+            color: #6b6b70;
+            font-weight: 500;
+            position: absolute;
+            left: 0;
+        }
+        .tip-box {
+            background: #f5f5fa;
+            border-radius: 20px;
+            padding: 24px;
+            margin: 30px 0;
+            border-left: 4px solid #FF5E5E;
+        }
+        .tip-box h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0A0A0A;
+        }
+        .contact-box {
+            background: linear-gradient(145deg, #f9f9fb, #f0f0f5);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .contact-box h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .contact-box .email {
+            font-size: 24px;
+            font-weight: 500;
+            color: #FF5E5E;
+            margin: 20px 0;
+            padding: 12px 20px;
+            background: white;
+            border-radius: 60px;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .contact-box .email a {
+            color: #FF5E5E;
+            text-decoration: none;
+        }
+        .version-info {
+            background: #0A0A0A;
+            color: white;
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .version-info .label {
+            color: #a1a1a6;
+            font-size: 15px;
+        }
+        .version-info .value {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .footer {
+            padding: 24px 32px 32px;
+            background: #f9f9fb;
+            border-top: 1px solid #e9e9ed;
+            color: #6b6b70;
+            font-size: 14px;
+            text-align: center;
+        }
+        .footer a {
+            color: #FF5E5E;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .header { padding: 24px 20px; }
+            .content { padding: 24px 20px; }
+            .lang-tab { padding: 14px 16px 12px; }
+            .contact-box .email { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>醉酒模拟器 · 技术支持</h1>
+        <div class="sub">DrunkWalking – 常见问题 · 使用指南</div>
+        <div class="contact-badge">
+            📧 <a href="mailto:a1012927404@gmail.com">a1012927404@gmail.com</a> · 24小时内回复
+        </div>
+    </div>
+
+    <div class="lang-tabs">
+        <div class="lang-tab active" onclick="switchLang('zh')">简体中文</div>
+        <div class="lang-tab" onclick="switchLang('en')">English</div>
+    </div>
+
+    <div class="content">
+        <!-- 中文支持页面 -->
+        <div id="support-zh" class="support active">
+            <!-- 快速入门 -->
+            <div class="section">
+                <h2>快速入门</h2>
+                <div class="tip-box">
+                    <h3>🎯 核心玩法</h3>
+                    <p><strong>模拟醉酒模式</strong>：先转圈，再走直线。转得越多，晕得越狠。手机自动记录圈数和偏移程度，生成你的醉酒指数（1-10级）。</p>
+                    <p><strong>醉度测量模式</strong>：不转圈，直接走。测测你真实状态下能走多直。</p>
+                    <p><strong>聚会记分板</strong>：每局结果记在朋友名下，自动生成排行榜。谁最菜，一目了然。</p>
+                </div>
+            </div>
+
+            <!-- 常见问题 FAQ -->
+            <div class="section">
+                <h2>常见问题</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">转圈时手机怎么放？</div>
+                    <div class="faq-answer">双手捧着手机，屏幕向上，放在胸前。就像捧着一杯水。这样传感器最准，也方便低头看圈数。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">要走多少步？</div>
+                    <div class="faq-answer">默认走7步（约5米）。这是根据中国成年人平均步长0.75米设定的。你可以在设置里调整距离（3米/5米/10米/自定义）。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">走路的时候有提示吗？</div>
+                    <div class="faq-answer">没有任何提示。我们故意设计成“盲走”——走完才看到自己歪成什么样，这样才有惊喜（吓）。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">醉酒指数怎么算的？</div>
+                    <div class="faq-answer">根据你走路的偏移程度计算，共分10级。偏移越小等级越低，偏移越大等级越高。同时会显示对应的🍺图标数量——纯娱乐参考，别当真。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">怎么把成绩记在朋友名下？</div>
+                    <div class="faq-answer">结果页下方有“记在谁名下”按钮，点进去可以选择预设名字（张三/李四/王五/赵六），也可以手动输入新名字（比如“二狗子”）。保存后就会出现在聚会记分板里。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">数据会传到服务器吗？</div>
+                    <div class="faq-answer">完全不会。本应用100%离线运行，不联网，不收集任何数据。所有记录只存在你手机里，清空或卸载就没了。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">为什么转圈计数不准？</div>
+                    <div class="faq-answer">转圈时尽量保持手机在胸前不动，不要随着身体甩动。如果还是不准，可以尝试转慢一点，让陀螺仪更容易捕捉。另外，转圈时低头看屏幕也有助于稳定。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">支持哪些设备？</div>
+                    <div class="faq-answer">iPhone 8 及以上，iOS 15+。需要配备陀螺仪和加速度计（几乎所有iPhone都有）。</div>
+                </div>
+            </div>
+
+            <!-- 使用技巧 -->
+            <div class="section">
+                <h2>💡 使用技巧</h2>
+                <div class="tip-box">
+                    <ul style="margin-left: 20px;">
+                        <li><strong>转圈时低头看数字</strong> — 盯着屏幕上的圈数，有助于保持头部稳定，转起来更舒服。</li>
+                        <li><strong>走路时看前方</strong> — 不要看手机，像正常走路一样，这样测出来的结果才真实。</li>
+                        <li><strong>聚会时轮流玩</strong> — 每局记在不同人名下，最后看排行榜，谁最菜一目了然。</li>
+                        <li><strong>分享战报到群里</strong> — 结果页点“分享”，生成卡片发群里，公开处刑。</li>
+                        <li><strong>清空今晚记录</strong> — 新聚会开始时，记得在记分板点“清空今晚”，重新计分。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 联系与版本 -->
+            <div class="contact-box">
+                <h3>📱 还没解决？</h3>
+                <p>直接发邮件，我会在24小时内回复</p>
+                <div class="email">
+                    <a href="mailto:a1012927404@gmail.com">a1012927404@gmail.com</a>
+                </div>
+                <div class="version-info">
+                    <span><span class="label">当前版本：</span><span class="value">1.0.0</span></span>
+                    <span><span class="label">最后更新：</span><span class="value">2024年3月15日</span></span>
+                    <span><span class="label">兼容性：</span><span class="value">iOS 15+</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Support Page -->
+        <div id="support-en" class="support">
+            <!-- Quick Start -->
+            <div class="section">
+                <h2>Quick Start</h2>
+                <div class="tip-box">
+                    <h3>🎯 How It Works</h3>
+                    <p><strong>Drunk Sim Mode</strong>: Spin first, then walk. The more you spin, the dizzier you get. Phone tracks your spins and deviation, gives you a "drunk level" (1-10).</p>
+                    <p><strong>Sobriety Test Mode</strong>: Walk straight without spinning. See how steady you really are.</p>
+                    <p><strong>Party Scoreboard</strong>: Save results under your friends' names. Real-time rankings show who's buying next round.</p>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do I hold my phone while spinning?</div>
+                    <div class="faq-answer">Hold it with both hands, screen up, against your chest — like holding a cup of water. This gives the most accurate sensor readings and lets you check your spin count easily.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How many steps do I walk?</div>
+                    <div class="faq-answer">Default is 7 steps (about 5 meters), based on average adult stride length (0.75m). You can adjust distance in settings: 3m/5m/10m/custom.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is there any feedback while walking?</div>
+                    <div class="faq-answer">No — it's intentionally "blind". You won't know how crooked you were until the results screen. That's where the fun (and shame) begins.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How is the drunk level calculated?</div>
+                    <div class="faq-answer">Based on how much you deviate from a straight line, on a scale from 1 to 10. Less deviation = lower level, more deviation = higher level. The 🍺 icons are just for fun — don't take it too seriously.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I save results under friends' names?</div>
+                    <div class="faq-answer">On the results page, tap "Save to" → choose from preset names (Mike/Sarah/John) or add a custom name. It'll show up on the scoreboard.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is my data uploaded to servers?</div>
+                    <div class="faq-answer">Never. 100% offline, zero data collection. Everything stays on your device. Clear or uninstall = gone forever.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Spin count seems off?</div>
+                    <div class="faq-answer">Keep your phone steady against your chest, don't let it swing with your body. Try spinning slower for better accuracy. Looking at the screen helps too.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Supported devices?</div>
+                    <div class="faq-answer">iPhone 8 and up, iOS 15+. Requires gyroscope + accelerometer (which all these models have).</div>
+                </div>
+            </div>
+
+            <!-- Tips -->
+            <div class="section">
+                <h2>💡 Pro Tips</h2>
+                <div class="tip-box">
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Look at the screen while spinning</strong> — staring at the numbers helps stabilize your head.</li>
+                        <li><strong>Look forward while walking</strong> — don't watch your phone, walk naturally for accurate results.</li>
+                        <li><strong>Take turns at parties</strong> — save each round under different names, see who's the worst.</li>
+                        <li><strong>Share to group chat</strong> — tap "Share" on results page, generate a card, send it for public embarrassment.</li>
+                        <li><strong>Clear tonight's data</strong> — tap "Clear Tonight" on scoreboard before a new party starts.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact-box">
+                <h3>📱 Still need help?</h3>
+                <p>Email me — I'll reply within 24 hours</p>
+                <div class="email">
+                    <a href="mailto:a1012927404@gmail.com">a1012927404@gmail.com</a>
+                </div>
+                <div class="version-info">
+                    <span><span class="label">Version:</span><span class="value">1.0.0</span></span>
+                    <span><span class="label">Last update:</span><span class="value">Mar 15, 2024</span></span>
+                    <span><span class="label">Requires:</span><span class="value">iOS 15+</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2024 醉酒模拟器 · DrunkWalking · 
+        <a href="#" onclick="switchLang('zh'); return false;">中文</a> · 
+        <a href="#" onclick="switchLang('en'); return false;">English</a><br>
+        <a href="privacy.html" style="color: #FF5E5E;">隐私政策</a> · 完全离线 · 不收集任何数据
+    </div>
+</div>
+
+<script>
+    function switchLang(lang) {
+        // 阻止默认链接跳转
+        event.preventDefault();
+        
+        // 更新tab样式
+        document.querySelectorAll('.lang-tab').forEach(tab => tab.classList.remove('active'));
+        // 找到被点击的tab并激活
+        const tabs = document.querySelectorAll('.lang-tab');
+        tabs.forEach(tab => {
+            if (tab.textContent.includes(lang === 'zh' ? '中文' : 'English')) {
+                tab.classList.add('active');
+            }
+        });
+        
+        // 更新支持页面显示
+        document.querySelectorAll('.support').forEach(support => support.classList.remove('active'));
+        document.getElementById('support-' + lang).classList.add('active');
+    }
+</script>
+</body>
+</html>
